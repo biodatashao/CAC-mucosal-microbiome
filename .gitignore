@@ -1,0 +1,31 @@
+# ---- Raw and intermediate data (never commit) ----
+*.fastq
+*.fastq.gz
+*.fq.gz
+*.sra
+*.qza
+*.qzv
+*.biom
+*.rds
+*.RData
+.Rhistory
+.RData
+.Rproj.user/
+
+# ---- Clinical / patient-level data ----
+data/clinical/
+*.xlsx
+*.xls
+
+# ---- Large outputs ----
+output/
+*.pdf
+*.tiff
+*.png
+!docs/*.png
+
+# ---- OS / editor ----
+.DS_Store
+Thumbs.db
+*~
+.vscode/
