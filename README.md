@@ -2,8 +2,8 @@
 
 Analysis code for the manuscript:
 
-> [Stage-associated mucosal microbial states across colitis-associated carcinogenesis]
-> [Yupei Shao, Sunting Yang, Hong Lv, TingTing Wang, Zheng Wang, Tian Xu, Weixin Hou, Jing Wang, Taotao Han, Jingnan Li]
+> **Stage-associated mucosal microbial states across colitis-associated carcinogenesis**
+> Yupei Shao, Sunting Yang, Hong Lv, TingTing Wang, Zheng Wang, Tian Xu, Weixin Hou, Jing Wang, Taotao Han, Jingnan Li
 
 This repository contains the complete R analysis pipeline used to generate every
 figure, supplementary figure and reported statistic in the manuscript, based on
@@ -153,3 +153,13 @@ A per-script table is in [`docs/script_figure_map.md`](docs/script_figure_map.md
   from the same 7-negative-control decontaminated tables.
 
 ---
+
+## Citation
+
+If you use this code, please cite the manuscript above.
+
+## Contact
+
+Yupei Shao — Department of Gastroenterology, Peking Union Medical College
+Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College,
+Beijing, China.
