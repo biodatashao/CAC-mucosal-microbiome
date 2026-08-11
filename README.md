@@ -2,9 +2,8 @@
 
 Analysis code for the manuscript:
 
-> **[MANUSCRIPT TITLE]**
-> [Author list]
-> *Gut Microbes*, [year]. DOI: [to be added on acceptance]
+> [Stage-associated mucosal microbial states across colitis-associated carcinogenesis]
+> [Yupei Shao, Sunting Yang, Hong Lv, TingTing Wang, Zheng Wang, Tian Xu, Weixin Hou, Jing Wang, Taotao Han, Jingnan Li]
 
 This repository contains the complete R analysis pipeline used to generate every
 figure, supplementary figure and reported statistic in the manuscript, based on
@@ -17,16 +16,14 @@ clinical groups.
 
 | Resource | Location |
 |---|---|
-| Raw 16S sequencing reads (300 paired-end FASTQ files) | NCBI SRA, BioProject **[PRJNAxxxxxx]** |
+| Raw 16S sequencing reads (300 paired-end FASTQ files) | NCBI SRA, BioProject PRJNA1509974|
 | Sample-level sequencing metadata | NCBI BioSample, linked to the BioProject above |
 | Clinical metadata (patient-level) | Not publicly deposited — see below |
 | Analysis code | This repository |
 
 Patient-level clinical metadata (disease duration, Mayo score, AJCC stage,
 recurrence status, disease-free survival, ESR/CRP) are not deposited publicly
-because of patient-privacy restrictions and the terms of the ethics approval
-granted by the Institutional Review Board of Peking Union Medical College
-Hospital ([approval number]). De-identified clinical variables required to
+because of patient-privacy restrictions. De-identified clinical variables required to
 reproduce specific analyses are available from the corresponding author on
 reasonable request.
 
@@ -65,8 +62,7 @@ builds the clean tables that every later module reads.
 
 ```bash
 # Requires the SRA Toolkit: https://github.com/ncbi/sra-tools
-prefetch PRJNAxxxxxx
-fasterq-dump --split-files SRRxxxxxxx
+prefetch PRJNA1509974
 ```
 
 ### 2. Upstream processing
@@ -134,10 +130,10 @@ reads its inputs from disk and writes its outputs to disk.
 | **02** | Alpha diversity (Shannon, observed genera) and beta diversity (Bray-Curtis, PCoA, PERMANOVA) → **Figure 2**, **Supplementary Figure 1** |
 | **03** | Genus-level composition and LEfSe biomarker discovery across the five progression groups and in paired CAC vs nonCAC → **Figure 3** |
 | **04** | Dirichlet multinomial mixture (DMM) probabilistic community-state modelling: model selection over K = 1–7, characterisation of the K = 3 states, and projection of the paired cohort onto the fitted model → **Figure 4** |
-| **05** | Clinical association analyses in CAC: diversity by AJCC stage, dysplasia grade and recurrence; Bray-Curtis PCoA by recurrence; disease-free survival; and the two-genus Recurrence-associated Microbial Index (RMI) → **Figure 7**, **Supplementary Figure 3** |
-| **06** | Supplementary inflammation-spectrum analysis (polyp vs UC remission vs active UC), oral-associated microbial score and UCG-005 versus ESR/CRP → **Supplementary Figure [x]** |
+| **05** | Clinical association analyses in CAC: diversity by AJCC stage, dysplasia grade and recurrence; Bray-Curtis PCoA by recurrence; disease-free survival; and the two-genus Recurrence-associated Microbial Index (RMI) → **Figure 7**, **Supplementary Figure 5** |
+| **06** | Supplementary inflammation-spectrum analysis (polyp vs UC remission vs active UC), oral-associated microbial score and UCG-005 versus ESR/CRP → **Supplementary Figure 3** |
 | **07** | Sensitivity analyses (monotonic trend testing, rarefaction-depth robustness of the DMM solution, effect sizes) and negative-control characterisation → **Supplementary Tables** |
-| **08** | PICRUSt2 MetaCyc pathway prediction and pathway-level LEfSe, across the five progression groups and in paired CAC vs nonCAC → **Figure 5**, **Supplementary Figure 2** |
+| **08** | PICRUSt2 MetaCyc pathway prediction and pathway-level LEfSe, across the five progression groups and in paired CAC vs nonCAC → **Figure 5**, **Supplementary Figure 4** |
 
 A per-script table is in [`docs/script_figure_map.md`](docs/script_figure_map.md).
 
@@ -157,13 +153,3 @@ A per-script table is in [`docs/script_figure_map.md`](docs/script_figure_map.md
   from the same 7-negative-control decontaminated tables.
 
 ---
-
-## Citation
-
-If you use this code, please cite the manuscript above.
-
-## Contact
-
-[Name], [email] — Department of Gastroenterology, Peking Union Medical College
-Hospital, Chinese Academy of Medical Sciences and Peking Union Medical College,
-Beijing, China.
